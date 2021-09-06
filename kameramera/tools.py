@@ -7,6 +7,8 @@ class Lightmeter:
         self.shutter_speed = float(Fraction(shutter_speed))
         self.shutter_speed_norm = self._shutter_speed
 
+        self.film_speed = film_speed
+
     @property
     def shutter_speed_norm(self):
         return self._shutter_speed_norm
@@ -26,6 +28,14 @@ class Lightmeter:
     def shutter_speed(self, shutter_speed):
         self._shutter_speed = float(Fraction(shutter_speed))
         self.shutter_speed_norm = self._shutter_speed
+
+    @property
+    def film_speed(self):
+        return self._film_speed
+
+    @film_speed.setter
+    def film_speed(self, film_speed):
+        self._film_speed = int(film_speed)
 
 
     def get_shutter_speed(self):

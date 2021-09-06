@@ -25,3 +25,7 @@ class Lightmeter(unittest.TestCase):
     def test_shutter_speed_norm_int(self):
         self.posometre.shutter_speed = 2
         self.assertEqual(self.posometre.shutter_speed_norm, '2')
+
+    def test_film_speed(self):
+        self.posometre.film_speed = 400
+        self.assertEqual(self.posometre.film_speed, 400)
