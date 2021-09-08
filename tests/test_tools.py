@@ -5,11 +5,8 @@ from kameramera import tools
 class Lightmeter(unittest.TestCase):
     
     def setUp(self):
-        self.posometre = tools.Lightmeter(100, '1/1000', 3.5, 500)
+        self.posometre = tools.Lightmeter()
     
-    def tearDown(self):
-        pass
-
     def test_shutter_speed_float(self):
         self.posometre.shutter_speed = 0.5
         self.assertEqual(self.posometre.shutter_speed, 0.5)
@@ -29,3 +26,23 @@ class Lightmeter(unittest.TestCase):
     def test_film_speed(self):
         self.posometre.film_speed = 400
         self.assertEqual(self.posometre.film_speed, 400)
+
+    def test_aperture(self):
+        self.posometre.aperture = 5.6
+        self.assertEqual(self.posometre.aperture, 5.6) 
+    
+    def test_illuminance(self):
+        self.posometre.illuminance = 10000
+        self.assertEqual(self.posometre.illuminance, 10000)
+
+    def test_get_shutter_speed(self):
+        self.posometre.get_shutter_speed()
+        self.assertEqual(self.posometre.shutter_speed, 0.06125)
+
+    def test_get_aperture(self):
+        self.posometre.get_aperture()
+        self.assertEqual(self.posometre.aperture, 0.5)
+
+    def test_get_film_speed(self):
+        self.posometre.get_film_speed()
+        self.assertEqual(self.posometre.film_speed, 6400)

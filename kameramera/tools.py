@@ -2,9 +2,9 @@ from fractions import Fraction
 from decimal import Decimal, ROUND_UP
 
 import os
-from math import sqrt
 
 from . import utils
+from .constants import FILM_SPEED
 
 class Lightmeter:
 
@@ -106,10 +106,18 @@ class Lightmeter:
         self._illuminance = int(illuminance)
 
     def get_shutter_speed(self):
+        """Update the shutter speed from other variables
+        """
         self.shutter_speed = (pow(self.aperture, 2) * self.incident_light_constant)/(self.illuminance * self.film_speed)
     
     def get_aperture(self):
-        res = Decimal((self.illuminance * self.film_speed * self.shutter_speed)/(self.incident_light_constant)).sqrt()
-        print(res)
-        print(res.quantize(Decimal('0.1'), rounding=ROUND_UP))
-        #self.shutter_speed = (pow(self.aperture, 2) * self.incident_light_constant)/(self.illuminance * self.film_speed)
+        """Update the aperture from other variables
+        """
+        aperture_float = Decimal((self.illuminance * self.film_speed * self.shutter_speed)/(self.incident_light_constant)).sqrt()
+        self.aperture = aperture_float.quantize(Decimal('0.1'), rounding=ROUND_UP)
+
+    def get_film_speed(self):
+        """Update the film speed from other variables
+        """
+        film_speed = (pow(self.aperture, 2) * self.incident_light_constant)/(self.shutter_speed * self.illuminance)
+        self.film_speed = utils.get_closest_value(FILM_SPEED, film_speed)
