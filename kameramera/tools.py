@@ -121,3 +121,8 @@ class Lightmeter:
         """
         film_speed = (pow(self.aperture, 2) * self.incident_light_constant)/(self.shutter_speed * self.illuminance)
         self.film_speed = utils.get_closest_value(FILM_SPEED, film_speed)
+
+    def get_illuminance(self):
+        """Update the illuminance from other variables
+        """
+        self.illuminance = (pow(self.aperture, 2) * self.incident_light_constant)/(self.shutter_speed * self.film_speed)

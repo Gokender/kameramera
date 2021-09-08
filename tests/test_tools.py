@@ -46,3 +46,7 @@ class Lightmeter(unittest.TestCase):
     def test_get_film_speed(self):
         self.posometre.get_film_speed()
         self.assertEqual(self.posometre.film_speed, 6400)
+
+    def test_get_illuminance(self):
+        self.posometre.get_illuminance()
+        self.assertEqual(self.posometre.illuminance, 30625)
