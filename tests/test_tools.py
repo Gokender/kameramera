@@ -50,3 +50,7 @@ class Lightmeter(unittest.TestCase):
     def test_get_illuminance(self):
         self.posometre.get_illuminance()
         self.assertEqual(self.posometre.illuminance, 30625)
+
+    def test_get_variables(self):
+        variables = {'shutter_speed': 0.001, 'shutter_speed_norm': '1/1000', 'film_speed': 100, 'aperture': 3.5, 'illuminance': 500}
+        self.assertEqual(self.posometre.get_variables(), variables)

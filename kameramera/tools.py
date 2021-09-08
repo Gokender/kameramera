@@ -20,12 +20,7 @@ class Lightmeter:
             conf_file (str): The filepath of the conf YAML file. 
                 Defaults to 'kameramera/camera.yaml'
 
-            **kwargs: Arbitrary keyword arguments.
-
-        Raises:
-            AttributeError: The ``Raises`` section is a list of all exceptions
-                that are relevant to the interface.
-            ValueError: If `param2` is equal to `param1`.
+            **kwargs: Variables from conf file you can override.
 
         """
         conf_data = utils.load_conf(conf_file)
@@ -126,3 +121,14 @@ class Lightmeter:
         """Update the illuminance from other variables
         """
         self.illuminance = (pow(self.aperture, 2) * self.incident_light_constant)/(self.shutter_speed * self.film_speed)
+
+    def get_variables(self) ->dict :
+        """Return the Lightmeter attributes into dict
+        """
+        return {
+            'shutter_speed':self.shutter_speed,
+            'shutter_speed_norm':self.shutter_speed_norm,
+            'film_speed':self.film_speed,
+            'aperture':self.aperture,
+            'illuminance':self.illuminance,
+        }
