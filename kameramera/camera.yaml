@@ -1,0 +1,10 @@
+camera:
+  shutter_speed: 1/1000
+  aperture: 3.5
+  film_speed: 100
+
+scene:
+  illuminance: 500
+
+constant:
+  incident_light_constant: 250
