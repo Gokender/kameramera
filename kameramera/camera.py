@@ -124,7 +124,6 @@ class Power:
         self.required = self._data['required']
 
         for source in self._data['source']:
-            #print(source)
             self.source.append(self.Source(source))
         
     def __repr__(self):
