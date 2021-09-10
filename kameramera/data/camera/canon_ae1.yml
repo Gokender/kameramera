@@ -1,0 +1,105 @@
+general:
+  manufacturer: Canon
+  name : Canon AE-1
+  type: SLR
+  format: 24x35
+  made_in: Japan
+  date: 1976-1984
+  body_construction: metal
+  mount_threads: 1/4"
+  dimension: 141x87x47.5 mm
+  weight: 620g
+  
+optics:
+  lenses: interchangeable 
+  lenses_mount: Canon FD
+
+sighting:
+  type: fixed eye-level pentaprism
+  viewfinder:
+    rangefinder: 
+      - split_image
+      - microprism
+    aperture: yes
+    exposure_indicator: yes 
+    flash_indicator: yes
+  display: no
+
+focus:
+  manual: yes
+  autofocus: no
+  stabilization: no
+  depth_of_field: yes
+
+shutter:
+  type: ~
+  shutter_speeds:
+    - !!str 2
+    - !!str 1
+    - 1/2
+    - 1/4
+    - 1/8
+    - 1/15
+    - 1/30
+    - 1/60
+    - 1/125
+    - 1/250
+    - 1/500
+    - 1/1000
+  pose: B
+  self_timer: 10
+
+exposure:
+  mode:
+    - M
+    - S
+  measure: 
+    type: TTL
+    light_sensor: silicon photon cell
+    metering_mode: center-weighted average metering
+    memory: yes
+  correction: 1.5
+
+film:
+  format: 135
+  advance: manual
+  frame_counter: yes
+  film_speed:
+    - 25
+    - 32
+    - 40
+    - 50
+    - 64
+    - 80
+    - 100
+    - 125
+    - 160
+    - 200
+    - 250
+    - 320
+    - 400
+    - 500
+    - 640
+    - 800
+    - 1000
+    - 1250
+    - 1600
+    - 2000
+    - 2500
+    - 3200
+
+flash:
+  built_in: no
+  hot_shoe: yes
+  synchronization: 1/60
+
+power:
+  source:
+    -
+      number: 1
+      voltage: 6
+      type:
+        - alkaline-manganese
+        - silver oxyde
+        - lithium
+  required: yes
