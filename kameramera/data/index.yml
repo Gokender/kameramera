@@ -1,0 +1,10 @@
+cameras:
+- id: canon_ae1
+  manufacturer: Canon
+  name: Canon AE-1
+  path: kameramera\data\camera\canon_ae1.yml
+- id: minolta_x-500
+  manufacturer: Minolta
+  name: Minolta X-500
+  path: kameramera\data\camera\minolta_x-500.yml
+last_update: 2021-09-10 14:14:56.842968
