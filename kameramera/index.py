@@ -1,3 +1,4 @@
+from kameramera.camera import Camera
 import os
 from difflib import get_close_matches
 
@@ -42,16 +43,16 @@ class Index:
         #print('Error no cameras found with {}'.format(name))
         return None
 
-    def get_by_manufacturer(self, manufacturer) -> Camera:
+    def get_by_manufacturer(self, manufacturer) -> list:
+        cameras = []
         for camera in self.cameras:
             if camera.manufacturer == manufacturer:
-                return camera
+                cameras.append(camera)
+        return cameras
         #print('Error no cameras found with {}'.format(manufacturer))
         return None
     
     def get_closest_camera(self, name) -> list:
-
-        print([camera.name.lower() for camera in self.cameras])
         closest = get_close_matches(name, 
                                     [camera.name for camera in self.cameras],
                                     cutoff=0.4)
